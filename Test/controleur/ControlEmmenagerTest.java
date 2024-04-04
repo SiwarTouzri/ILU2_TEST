@@ -1,14 +1,18 @@
 package controleur;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import personnages.Chef;
+import personnages.Druide;
+import personnages.Gaulois;
+
+
+import org.junit.jupiter.api.Test;
+
 import villagegaulois.Village;
+import controleur.ControlEmmenager;
 
 class ControlEmmenagerTest {
 	private Village village;
@@ -17,7 +21,7 @@ class ControlEmmenagerTest {
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("Initialisation...");
-		village = new Village("le village des irréductibles", 10, 5);
+		village = new Village("le village des irrÃ©ductibles", 10, 5);
 		abraracourcix = new Chef("Abraracourcix", 10, village);
 		village.setChef(abraracourcix);
 	}
@@ -39,17 +43,18 @@ class ControlEmmenagerTest {
 	}
 
 	@Test
+	
 	void testAjouterDruide() {
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
 		controlEmmenager.ajouterDruide("Panoramix", 10, 1, 5);
-		// pas de vérification
+		// pas de vÃ©rification
 	}
 
 	@Test
 	void testAjouterGaulois() {
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
 		controlEmmenager.ajouterGaulois("Bonemine", 10);
-		// pas de vérification
+		// pas de vÃ©rification
 	}
 
 }

@@ -8,11 +8,10 @@ import org.junit.jupiter.api.Test;
 import personnages.Chef;
 import villagegaulois.Village;
 
-class ControlAcheterProduitTest {
-
+class ControlAfficherMarcheTest {
 	private Village village;
 	private Chef abraracourcix;
-
+	
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("Initialisation...");
@@ -20,12 +19,17 @@ class ControlAcheterProduitTest {
 		abraracourcix = new Chef("Abraracourcix", 10, village);
 		village.setChef(abraracourcix);
 	}
+	
 	@Test
-	void testControlAfficherProduit() {
-		ControlTrouverEtalVendeur controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(village);
-		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
-		ControlAcheterProduit controlAcheterProduit = new ControlAcheterProduit(controlVerifierIdentite,controlTrouverEtalVendeur,village);
-		assertNotNull(controlAcheterProduit, "Constructeur ne renvoie pas null");
+	void testControlAfficherMarcher() {
+		ControlAfficherMarche controlAfficherMarche = new ControlAfficherMarche(village);
+		assertNotNull(controlAfficherMarche, "Constructeur ne renvoie pas null");
 	}
+	
+	@Test
+	void testdonnerInfosMarche() {
+		ControlAfficherMarche controlAfficherMarche = new ControlAfficherMarche(village);
+		assertNotNull(controlAfficherMarche.donnerInfosMarche());
 
+	}
 }
